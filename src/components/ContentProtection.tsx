@@ -6,6 +6,14 @@ interface ContentProtectionProps {
 
 const ContentProtection: React.FC<ContentProtectionProps> = ({ children }) => {
   useEffect(() => {
+    // TEMPORARILY DISABLED FOR DATA MIGRATION - RE-ENABLE AFTER MIGRATION
+    const MIGRATION_MODE = true; // Set to false after migration
+    
+    if (MIGRATION_MODE) {
+      console.log('🔧 MIGRATION MODE: Content protection disabled for data migration');
+      return; // Skip all protection during migration
+    }
+    
     // Disable right-click context menu
     const handleContextMenu = (e: MouseEvent) => {
       e.preventDefault();

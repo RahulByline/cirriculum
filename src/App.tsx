@@ -20,6 +20,7 @@ import {
 } from './utils/adminStorage';
 import { normalizeCurriculum } from './utils/dataNormalization';
 import { CurriculumLevel, PricingConfig, CurriculumStructureConfig } from './types';
+import './utils/dataMigration'; // Import migration utility for browser console access
 
 // Deep merge function to ensure all nested properties are present
 const deepMergePricing = (serverPricing: any, defaultPricing: PricingConfig): PricingConfig => {
@@ -110,9 +111,7 @@ function App() {
     );
 
     return () => {
-      if (subscription) {
-        subscription.unsubscribe();
-      }
+      
     };
   }, []);
 
